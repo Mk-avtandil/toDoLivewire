@@ -1,12 +1,9 @@
 <?php
 
+use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
